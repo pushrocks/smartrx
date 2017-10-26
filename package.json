@@ -9,10 +9,13 @@
   "scripts": {
     "test": "(npmts)"
   },
-   "devDependencies": {
+  "devDependencies": {
     "tapbundle": "^1.0.13"
   },
   "dependencies": {
+    "lik": "^1.0.43",
+    "rxjs": "^5.5.2",
+    "smartq": "^1.1.6",
     "typings-global": "^1.0.16"
   }
 }

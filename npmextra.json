@@ -3,5 +3,8 @@
     "npmGlobalTools": [
       "npmts"
     ]
+  },
+  "npmdocker": {
+    "command": "rm -r node_modules && yarn install && yarn test"
   }
 }
