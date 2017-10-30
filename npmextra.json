@@ -6,5 +6,10 @@
   },
   "npmdocker": {
     "command": "rm -r node_modules && yarn install && yarn test"
+  },
+  "npmts": {
+    "testConfig": {
+      "parallel": false
+    }
   }
 }
