@@ -1,6 +1,5 @@
 import * as plugins from './smartrx.plugins'
-import { Observable, rxjsObservable } from './smartrx.classes.observable'
-
+import { Observable } from 'rxjs'
 import { Objectmap } from 'lik'
 import { Stringmap } from 'lik'
 

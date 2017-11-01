@@ -27,10 +27,8 @@ tap.test('should accept a new emitter', async () => {
   })
   testObservable2 = testObservablemap.getObservableForEmitterEvent(testEmitter, 'event1')
   testObservable3 = testObservablemap.getObservableForEmitterEvent(testEmitter, 'event2')
-  // tslint:disable-next-line:no-unused-expression
-  expect(testObservable1 === testObservable2).be.true
-  // tslint:disable-next-line:no-unused-expression
-  expect(testObservable1 === testObservable3).be.false
+  expect(testObservable1 === testObservable2).be.true()
+  expect(testObservable1 === testObservable3).be.false()
   testEmitter.emit('event1')
   await done.promise
 })

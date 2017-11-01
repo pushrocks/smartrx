@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import * as plugins from './smartrx.plugins';
-import { rxjsObservable } from './smartrx.classes.observable';
+import { Observable } from 'rxjs';
 import { Objectmap } from 'lik';
 /**
  * bundles an observable with an emitter
@@ -19,5 +19,5 @@ export declare class Observablemap {
      * creates a new observable if not yet registered for the same event.
      * In case event has been registered before the same observable is returned.
      */
-    getObservableForEmitterEvent(emitterArg: plugins.events.EventEmitter, eventArg: string): rxjsObservable<any>;
+    getObservableForEmitterEvent(emitterArg: plugins.events.EventEmitter, eventArg: string): Observable<any>;
 }
