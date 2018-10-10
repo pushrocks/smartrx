@@ -1,6 +1,6 @@
 {
   "name": "smartrx",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "private": false,
   "description": "smart wrapper for rxjs",
   "main": "dist/index.js",
