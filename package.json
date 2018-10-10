@@ -1,22 +1,27 @@
 {
   "name": "smartrx",
   "version": "1.0.5",
+  "private": false,
   "description": "smart wrapper for rxjs",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "author": "Lossless GmbH",
   "license": "MIT",
   "scripts": {
-    "test": "(npmts)"
+    "test": "(tstest test/)",
+    "build": "(tsbuild)"
   },
   "devDependencies": {
-    "tapbundle": "^1.1.8"
+    "@gitzone/tsbuild": "^2.0.22",
+    "@gitzone/tsrun": "^1.1.12",
+    "@gitzone/tstest": "^1.0.15",
+    "@pushrocks/tapbundle": "^3.0.7",
+    "@types/node": "^10.11.6"
   },
   "dependencies": {
-    "lik": "^2.0.1",
-    "rxjs": "^5.5.2",
-    "smartevent": "^1.0.1",
-    "smartq": "^1.1.6",
-    "typings-global": "^1.0.23"
+    "@pushrocks/lik": "^3.0.1",
+    "@pushrocks/smartpromise": "^2.0.5",
+    "rxjs": "^6.3.3",
+    "smartevent": "^1.0.1"
   }
 }
