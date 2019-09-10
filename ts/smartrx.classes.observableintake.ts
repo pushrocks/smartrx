@@ -1,13 +1,13 @@
 import * as plugins from './smartrx.plugins';
 import { Observable, Subscription } from 'rxjs';
-import { Deferred } from 'smartq';
+import { Deferred } from '@pushrocks/smartpromise';
 
 /**
  * ObservableIntake
  */
 export class ObservableIntake<T> {
-  observable: Observable<T>;
-  completed: Promise<void>;
+  public observable: Observable<T>;
+  public completed: Promise<void>;
   private completedDeffered: Deferred<void>;
   private observableFunctions: any = {
     next: payloadArg => {
@@ -35,11 +35,11 @@ export class ObservableIntake<T> {
     this.completed = this.completedDeffered.promise;
   }
 
-  setObservable(observableFunc) {
+  public setObservable(observableFunc) {
     this.observable = observableFunc();
   }
 
-  push(payloadArg: T) {
+  public push(payloadArg: T) {
     if (this.buffered) {
       this.payloadBuffer.push(payloadArg);
     } else {
@@ -51,8 +51,8 @@ export class ObservableIntake<T> {
    * pushes many payloads as array
    * @param payloadArgArray
    */
-  pushMany(payloadArgArray: T[]) {
-    for (let item of payloadArgArray) {
+  public pushMany(payloadArgArray: T[]) {
+    for (const item of payloadArgArray) {
       this.push(item);
     }
   }
@@ -61,15 +61,15 @@ export class ObservableIntake<T> {
    * sets a generator to query the next pushed value
    * @param generatorArg
    */
-  setGenerator(generatorArg) {
+  public setGenerator(generatorArg) {
     this.generator = generatorArg;
   }
 
-  makeBuffered() {
+  public makeBuffered() {
     this.buffered = true;
   }
 
-  subscribe(...args) {
+  public subscribe(...args) {
     return this.observable.subscribe(...args);
   }
 
@@ -77,7 +77,7 @@ export class ObservableIntake<T> {
    * request the next values in the quantity specified
    * @param howManyArg if a generator is set, of a buffer exists, this allows retrieving values
    */
-  request(howManyArg: number) {
+  public request(howManyArg: number) {
     if (howManyArg === 0) {
       return;
     } else {
@@ -95,7 +95,7 @@ export class ObservableIntake<T> {
   /**
    * signals the completion of this observable
    */
-  signalComplete() {
+  public signalComplete() {
     this.observableFunctions.complete();
   }
 
