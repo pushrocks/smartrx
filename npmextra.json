@@ -5,5 +5,15 @@
   },
   "npmdocker": {
     "command": "rm -r node_modules && yarn install && yarn test"
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "pushrocks",
+      "gitrepo": "smartrx",
+      "shortDescription": "smart wrapper for rxjs",
+      "npmPackagename": "@pushrocks/smartrx",
+      "license": "MIT"
+    }
   }
 }
