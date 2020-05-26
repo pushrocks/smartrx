@@ -1,14 +1,12 @@
 import * as plugins from './smartrx.plugins';
-import { Observable, Subscription } from 'rxjs';
-import { Deferred } from '@pushrocks/smartpromise';
 
 /**
  * ObservableIntake
  */
 export class ObservableIntake<T> {
-  public observable: Observable<T>;
+  public observable: plugins.rxjs.Observable<T>;
   public completed: Promise<void>;
-  private completedDeffered: Deferred<void>;
+  private completedDeffered: plugins.smartpromise.Deferred<void>;
   private observableFunctions: any = {
     next: payloadArg => {
       // nothing
@@ -22,7 +20,7 @@ export class ObservableIntake<T> {
   private payloadBuffer = [];
 
   constructor() {
-    this.observable = Observable.create(observerArg => {
+    this.observable = plugins.rxjs.Observable.create(observerArg => {
       this.observableFunctions.next = (...args) => {
         return observerArg.next(...args);
       };
