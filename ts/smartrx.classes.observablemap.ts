@@ -1,12 +1,15 @@
 import * as plugins from './smartrx.plugins';
-import { EventEmitter } from '@pushrocks/smartevent';
+
+export interface IEventEmitter<T = any> {
+  on: (eventNameArg: string, eventHandlerArg: ((eventPayload: T) => any)) => void;
+}
 
 /**
  * bundles an observable with an emitter
  */
 export interface IObservableEmitterBundle {
   observable: plugins.rxjs.Observable<any>;
-  emitter: EventEmitter;
+  emitter: IEventEmitter<unknown>;
   event: string;
 }
 
@@ -20,14 +23,14 @@ export class Observablemap {
    * creates a new observable if not yet registered for the same event.
    * In case event has been registered before the same observable is returned.
    */
-  public getObservableForEmitterEvent(emitterArg: EventEmitter, eventArg: string) {
+  public getObservableForEmitterEvent<T>(emitterArg: IEventEmitter<T>, eventArg: string) {
     const existingBundle = this.observableEmitterBundleObjectmap.find(bundleArg => {
       return bundleArg.emitter === emitterArg && bundleArg.event === eventArg;
     });
     if (existingBundle) {
       return existingBundle.observable;
     } else {
-      const emitterObservable = plugins.rxjs.fromEvent(emitterArg, eventArg);
+      const emitterObservable = plugins.rxjs.fromEvent<T>(emitterArg as any, eventArg);
       this.observableEmitterBundleObjectmap.add({
         observable: emitterObservable,
         emitter: emitterArg,
