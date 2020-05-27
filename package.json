@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/smartrx",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "private": false,
   "description": "smart wrapper for rxjs",
   "main": "dist_ts/index.js",
