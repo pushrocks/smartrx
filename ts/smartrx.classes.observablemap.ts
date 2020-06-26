@@ -1,7 +1,7 @@
 import * as plugins from './smartrx.plugins';
 
 export interface IEventEmitter<T = any> {
-  on: (eventNameArg: string, eventHandlerArg: ((eventPayload: T) => any)) => void;
+  on: (eventNameArg: string, eventHandlerArg: (eventPayload: T) => any) => void;
 }
 
 /**
