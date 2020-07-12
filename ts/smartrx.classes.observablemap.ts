@@ -24,7 +24,7 @@ export class Observablemap {
    * In case event has been registered before the same observable is returned.
    */
   public getObservableForEmitterEvent<T>(emitterArg: IEventEmitter<T>, eventArg: string) {
-    const existingBundle = this.observableEmitterBundleObjectmap.find(bundleArg => {
+    const existingBundle = this.observableEmitterBundleObjectmap.find((bundleArg) => {
       return bundleArg.emitter === emitterArg && bundleArg.event === eventArg;
     });
     if (existingBundle) {
@@ -34,7 +34,7 @@ export class Observablemap {
       this.observableEmitterBundleObjectmap.add({
         observable: emitterObservable,
         emitter: emitterArg,
-        event: eventArg
+        event: eventArg,
       });
       return emitterObservable;
     }

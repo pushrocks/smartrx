@@ -8,19 +8,19 @@ export class ObservableIntake<T> {
   public completed: Promise<void>;
   private completedDeffered: plugins.smartpromise.Deferred<void>;
   private observableFunctions: any = {
-    next: payloadArg => {
+    next: (payloadArg) => {
       // nothing
     },
-    complete: payloadArg => {
+    complete: (payloadArg) => {
       // nothing
-    }
+    },
   };
   private generator = null;
   private buffered = false;
   private payloadBuffer = [];
 
   constructor() {
-    this.observable = plugins.rxjs.Observable.create(observerArg => {
+    this.observable = plugins.rxjs.Observable.create((observerArg) => {
       this.observableFunctions.next = (...args) => {
         return observerArg.next(...args);
       };

@@ -22,7 +22,7 @@ tap.test('should accept a new emitter', async () => {
   let done = smartpromise.defer();
   testEmitter = new events.EventEmitter();
   testObservable1 = testObservablemap.getObservableForEmitterEvent(testEmitter, 'event1');
-  testObservable1.subscribe(x => {
+  testObservable1.subscribe((x) => {
     done.resolve();
   });
   testObservable2 = testObservablemap.getObservableForEmitterEvent(testEmitter, 'event1');
