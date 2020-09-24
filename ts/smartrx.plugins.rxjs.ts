@@ -1,6 +1,6 @@
 // this file is intended to keep the bundle size down
 
-export { Observable, Subject, fromEvent, ReplaySubject } from 'rxjs';
+export { Observable, Subject, fromEvent, ReplaySubject, Subscription } from 'rxjs';
 
 import { startWith, takeUntil, map, debounce, debounceTime } from 'rxjs/operators';
 
